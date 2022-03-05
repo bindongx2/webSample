@@ -1,23 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
 <html>
 <head>
-	
-	<title>Essuyo</title>
-	<link rel="icon" type="image/png" sizes="16x16" href="/resources/images/backpack.png">
-    <meta charset="utf-8">
+	<title>영화좌석 예매</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../resources/css/style.min.css" >
-    <link rel="stylesheet" href="../resources/css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR">
-    <link rel="stylesheet" href="../resources/css/simple-line-icons.css">
-	<link rel="stylesheet" href="../resources/css/themify-icons.css">
-	<link rel="stylesheet" href="../resources/css/set1.css">
-	
-
 	<style type="text/css">
 		@import url(http://fonts.googleapis.com/css?family=Reenie+Beanie);
 		#gridWrap{float: left; width:83%; height:500px; overflow:auto}
@@ -31,9 +19,8 @@
 		 .seat input{width: 20px;height: 20px;border: 0;background: transparent;font-size: 12px;font-weight: bold;color: #000;text-align: center;line-height: 20px;display: none}
 	</style>
 </head>
-
+    
 <body>
- 
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -42,44 +29,38 @@
     </div>
   
     <div id="main-wrapper" data-navbarbg="skin6" data-theme="light" data-layout="vertical" data-sidebartype="full" data-boxed-layout="full">
-     
-        <%@ include file="/pageframe/header.jsp" %>
-        <div class="page-wrapper" style="padding-left: 15px">
-             	<div style="padding-top: 5px;">
-				    
+        <div class="page-wrapper">
+             	<div>
 					<div style="padding-bottom: 5px">
-						<button type = "button" class = "btn btn-success" onclick="createSeat()">좌석등록</button>
-						<button type = "button" class = "btn btn-success" onclick="deleteSeat()">좌석삭제</button>
+						<button type="button" class="btn btn-success" onclick="createSeat()">좌석등록</button>
+						<button type="button" class="btn btn-success" onclick="deleteSeat()">좌석삭제</button>
 					</div>
-					
 			  </div>
 			  
                 <div id="gridWrap">
 						<div id="mapBG">
 							<div id="mapArea">
 							</div>
-                 		  </div>
+                		</div>
               	</div>
         </div>
     </div>
     
-    <!--//END DETAIL -->
-	<!--============================= FOOTER =============================-->
-	<%@ include file="/pageframe/footer.jsp"%>
-	<!--//END FOOTER -->
-	
-    <script src="../resources/js/jquery/jquery.min.js"></script>
-    <script src="../resources/js/popper/umd/popper.min.js"></script>
-    <script src="../resources/js/bootstrap/bootstrap.min.js"></script>
-    <script src="../resources/js/sparkline.js"></script>
-    <script src="../resources/js/userpage/waves.js"></script>
-    <script src="../resources/js/userpage/sidebarmenu.js"></script>
-    <script src="../resources/js/userpage/custom.min.js"></script>
-    <script src="../resources/js/utility.js"></script>
-    <script src="../resources/js/jscolor.js"></script>
-    
-    <!-- 아임포트 결제API 사용 -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	 
+	<!-- 아임포트 결제API 사용 -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<!--     <script src="../resources/js/jquery/jquery.min.js"></script> -->
+<!--     <script src="../resources/js/popper/umd/popper.min.js"></script> -->
+<!--     <script src="../resources/js/bootstrap/bootstrap.min.js"></script> -->
+<!--     <script src="../resources/js/sparkline.js"></script> -->
+<!--     <script src="../resources/js/userpage/waves.js"></script> -->
+<!--     <script src="../resources/js/userpage/sidebarmenu.js"></script> -->
+<!--     <script src="../resources/js/userpage/custom.min.js"></script> -->
+<!--     <script src="../resources/js/utility.js"></script> -->
+<!--     <script src="../resources/js/jscolor.js"></script> -->
+    
+   
     
   <script>
   
@@ -152,7 +133,7 @@
 				m.append(cell);
 			}
 		}
-		installSeat();		//db에 저장된 값 가져와서 좌석목록 조회하여 격자에 셋팅
+// 		installSeat();		//db에 저장된 값 가져와서 좌석목록 조회하여 격자에 셋팅
 		viewCountSeat();
 	}
 	
@@ -209,6 +190,9 @@
 		var param = new Object();
 		
 		var r = getAjaxJSON(url, param);
+		
+		
+		
 		if( r && r.seatVOList && r.seatVOList.length>0){
 			for(var i=0; i< r.seatVOList.length; i++){
 				if(r.seatVOList[i].is_FAC == "N"){			//좌석
@@ -225,6 +209,25 @@
 			}
 		}
 	}
+	
+
+	//ajax 통신 공통 함수
+	function getAjaxJSON(url, dataObj){
+		var r = null;
+		$.ajax(
+			url,
+			{
+			async : false,
+			data : dataObj,
+			method : "POST",
+			error : function(){
+				alert("ajax 에러 발생");
+			}, success : function(returnData){
+				r = returnData;
+			}
+		});
+		return r;
+	};
 	
 </script>
 </body>

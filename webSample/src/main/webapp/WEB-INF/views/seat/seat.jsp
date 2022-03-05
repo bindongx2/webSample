@@ -1,21 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
 <html>
 <head>
-	
-	<title>Essuyo</title>
-	<link rel="icon" type="image/png" sizes="16x16" href="/resources/images/backpack.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../resources/css/style.min.css" >
-    <link rel="stylesheet" href="../resources/css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR">
-    <link rel="stylesheet" href="../resources/css/simple-line-icons.css">
-	<link rel="stylesheet" href="../resources/css/themify-icons.css">
-	<link rel="stylesheet" href="../resources/css/set1.css">
 
 	<style type="text/css">
 		@import url(http://fonts.googleapis.com/css?family=Reenie+Beanie);
@@ -42,7 +32,6 @@
   
     <div id="main-wrapper" data-navbarbg="skin6" data-theme="light" data-layout="vertical" data-sidebartype="full" data-boxed-layout="full">
      
-        <%@ include file="/pageframe/admin-navigation.jsp" %>
         <div class="page-wrapper" style="padding-left: 15px">
              	<div style="padding-top: 5px;">
 	                <div style="padding-top: 5px; text-align: right" >
