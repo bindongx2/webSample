@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>
-	메인 화면 
+	메인 화면
 </h1>
 <P>  The time on the server is ${serverTime}. </P>
 <div class="wrapper fadeInDown">
@@ -22,6 +22,9 @@
 			<a class="underlineHover" onclick="goRegist()">회원 가입</a>
 		</div>
 		<div >
+			<a class="underlineHover" href="/login/viewLogin">login</a>
+		</div>
+		<div >
 			<a class="underlineHover" href="/seat/seat">seat</a>
 		</div>
 		<div >
@@ -33,7 +36,10 @@
 	</div>
 </div>
 	
-	
+
+<!-- 공통 js -->
+<script type="text/javascript" src="/common/common.jsp"></script>	
+		
 	
 	
 <script type="text/javascript">

@@ -29,6 +29,10 @@ dependencies {
     providedCompile 'javax.servlet:servlet-api:2.5'
     providedCompile 'javax.servlet.jsp:jsp-api:2.1'
     
+    /**/
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    
+    
 }
 
 group = 'com.web'

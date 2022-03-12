@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * 영화 좌석 예매 좌석 관련 Controller
  */
+
 @Controller
 @RequestMapping("/seat")
 public class SeatController {
