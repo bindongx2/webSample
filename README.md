@@ -8,7 +8,7 @@ Spring Boot 와 JPA을 이용한 웹 어플리케이션 개발
 
 2. 프로젝트 사용 언어 및 툴
  - 사용언어
-    - Objective-C
+    - JAVA
 
  - 사용 툴 및 버전
     - Spring Boot
